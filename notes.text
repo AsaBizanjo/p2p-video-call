@@ -1,0 +1,53 @@
+
+
+ICE: 
+A framework used to allow web browsers to connect with peers. 
+Cannot connect directly because of firewalls. Also becauseyou might not have a public IP. It will provide a unique IP address and relay data through a server.
+Uses STUN and/or TURN servers to accomplish this task. 
+
+
+STUN: 
+A server used to discover your public addressanddetermine any restrictions in your router that wouldprevent a direct connection. 
+It is like sending a WHO AM I request to a server. 
+
+
+NAT: 
+Used to give your device a public address. 
+
+TURN:
+Some routers only let you have a direct connection from peers you've previously connected to. 
+Turn is used to bypass this restriction. 
+
+
+SDP:
+Not a protocol.
+It is basically a data format used to describe connection that shares media between devices. 
+
+
+VIDEO CALL BASIC:
+In WebRTC P2P networks, peers will negotiate video codecs/stream bases on their device capabilities.
+Each sender will then send (singlecasts) a single stream containing video information to its peer counterpart. 
+
+SIMULCAST:
+used to send multiple simultaneos versios of the same source with different resoltions and bitrates.
+The SFM will then forward the most suitable streamto each recipent based on their network conditions and device capabilities. 
+
+
+The above info is taken from = https://developer.mozilla.org/en-US/docs/Web/API/WebRTC_API/Protocols 
+
+
+WebRTC APIs:
+we use navigator.mediaDevices.getUserMedia() to capture MediaStreams. 
+The P2P connectivity is handled by RTCPeerConnection interface. 
+
+info at = https://webrtc.org/getting-started/overview   
+
+
+USER_ID and ROOM_ID:
+User ID and room id are unique uuids. This will be generated when a user provides their in-meeting name. For this, express js backend is used. 
+
+
+SIGNALING:
+We need a real time change and a way to connect two browsers. 
+For signaling, websocket can be used. However, Socket.IO is a modern technology that has built in features like Auto-Reconnection and Heartbeat. 
+Therefore, we will use Socket.IO.
